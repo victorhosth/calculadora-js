@@ -69,8 +69,8 @@ body{
 
  #container{
     background-color: var(--corFundo1);
-
-    width: 260px;
+    height: calc(100vh - 30px);
+    width: 320px;
     border-radius: 10px;
     padding: 20px;
  }
@@ -126,8 +126,7 @@ body{
     
 }
 .key{
-    width: 45px;
-    height: 45px;
+    width: calc(25% - 10px);
     background-color: var(--corFundo2);
     border-radius: 500px;
     margin: 5px;
