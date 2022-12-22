@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Online JS</title>
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+<main class="ajcenter">
+    <section id="container" class="column">
+        <div id="part_tela" class="column">
+            <div id="keyboard" class="acenter">
+               564 +5646
+            </div>
+            <div id="result_fast" class="acenter">
+                <h2>999.999</h2>
+            </div>
+            <div id="buttons" class="acenter">
+                <div class="buttons_all flex">
+                    <div class="button_settings">
+                        <svg width="22" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.213 14.063a9.945 9.945 0 0 1 0-4.12c1.11.13 2.08-.237 2.396-1.001.317-.765-.108-1.71-.986-2.403a9.945 9.945 0 0 1 2.913-2.913c.692.877 1.638 1.303 2.403.986.765-.317 1.132-1.286 1-2.396a9.945 9.945 0 0 1 4.12 0c-.13 1.11.238 2.08 1.002 2.396.765.317 1.71-.108 2.403-.986a9.947 9.947 0 0 1 2.913 2.913c-.877.692-1.303 1.638-.986 2.403.317.765 1.286 1.132 2.396 1a9.945 9.945 0 0 1 0 4.12c-1.11-.13-2.08.238-2.396 1.002-.317.765.108 1.71.986 2.403a9.946 9.946 0 0 1-2.913 2.913c-.692-.877-1.638-1.303-2.403-.986-.765.317-1.132 1.286-1.001 2.396a9.945 9.945 0 0 1-4.12 0c.13-1.11-.237-2.08-1.001-2.396-.765-.317-1.71.108-2.403.986a9.944 9.944 0 0 1-2.913-2.913c.877-.692 1.303-1.638.986-2.403-.317-.765-1.286-1.132-2.396-1.001ZM4 12.213c1.1.305 2.007 1.002 2.457 2.086.449 1.085.3 2.22-.262 3.212.096.102.195.2.297.297.993-.562 2.127-.71 3.212-.262 1.084.45 1.78 1.357 2.086 2.457.14.004.28.004.42 0 .305-1.1 1.002-2.007 2.086-2.457 1.085-.45 2.22-.3 3.212.262.102-.096.2-.195.297-.297-.562-.993-.71-2.127-.262-3.212.45-1.084 1.357-1.781 2.457-2.086.004-.14.004-.28 0-.42-1.1-.305-2.007-1.002-2.457-2.086-.45-1.085-.3-2.22.262-3.212a7.967 7.967 0 0 0-.297-.297c-.993.562-2.127.71-3.212.262-1.084-.45-1.781-1.357-2.086-2.457a7.947 7.947 0 0 0-.42 0c-.305 1.1-1.002 2.007-2.086 2.457-1.085.449-2.22.3-3.212-.262a6.932 6.932 0 0 0-.297.297c.562.993.71 2.127.262 3.212C6.007 10.79 5.1 11.487 4 11.793c-.004.14-.004.28 0 .42Zm8 2.79a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm0-2a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"></path>
+                          </svg>
+                    </div>
+                    <div class="button_history">
+                        <svg width="22" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12h2a8 8 0 1 0 1.865-5.135L8 9H2V3l2.447 2.446A9.98 9.98 0 0 1 12 2Zm1 5v4.585l3.243 3.243-1.415 1.415L11 12.413V7h2Z"></path>
+                          </svg>
+                    </div>
+                    <div class="button_thema">
+                        <svg width="22" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM11 1h2v3h-2V1Zm0 19h2v3h-2v-3ZM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93v-.001ZM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121Zm2.121-14.85 1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121v-.001ZM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121ZM23 11v2h-3v-2h3ZM4 11v2H1v-2h3Z"></path>
+                          </svg>
+                          <svg class="none" width="22" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.977 6.977 0 0 0 10 7Zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12Z"></path>
+                          </svg>
+                    </div>
+                </div>
+                <div class="button_delete">
+                    <svg width="20" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.535 3H21a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6.535a1 1 0 0 1-.832-.445l-5.333-8a1 1 0 0 1 0-1.11l5.333-8A1 1 0 0 1 6.535 3Zm.535 2-4.666 7 4.666 7H20V5H7.07ZM13 10.586l2.828-2.829 1.415 1.415L14.414 12l2.83 2.828-1.416 1.415L13 13.414l-2.828 2.829-1.415-1.415L11.587 12l-2.83-2.828 1.415-1.415L13 10.586Z"></path>
+                      </svg>
+                </div>
+            </div>
+        </div>
+        <div id="part_tecla" class="flex wrap">
+            <div class="key ajcenter cor3" id="clear">
+                c
+            </div>
+            <div class="key ajcenter cor2" id="parenteses">
+                ()
+            </div>
+            <div class="key ajcenter cor2" id="percent">
+                %
+            </div>
+            <div class="key ajcenter cor2" id="divider">
+                /
+            </div>
+            <div class="key ajcenter cor1" id="key7">
+                7
+            </div>
+            <div class="key ajcenter cor1" id="key8">
+                8
+            </div>
+            <div class="key ajcenter cor1" id="key9">
+                9
+            </div>
+            <div class="key ajcenter cor2" id="multiple">
+                x
+            </div>
+            <div class="key ajcenter cor1" id="key4">
+                4
+            </div>
+            <div class="key ajcenter cor1" id="key5">
+                5
+            </div>
+            <div class="key ajcenter cor1" id="key6">
+                6
+            </div>
+            <div class="key ajcenter cor2" id="subtrair">
+                -
+            </div>
+            <div class="key ajcenter cor1" id="key1">
+                1
+            </div>
+            <div class="key ajcenter cor1" id="key2">
+                2
+            </div>
+            <div class="key ajcenter cor1" id="key3">
+                3
+            </div>
+            <div class="key ajcenter cor2" id="plus">
+                +
+            </div>
+            <div class="key ajcenter cor1" id="maisoumenos">
+                +-
+            </div>
+            <div class="key ajcenter cor1" id="key0">
+                0
+            </div>
+            <div class="key ajcenter cor1" id="keyvirgula">
+                ,
+            </div>
+            <div class="key ajcenter igual" id="igual">
+                =
+            </div>
+            
+        </div>
+    </section>
+</main>
+
+
+<script src="assets/js/script.js"></script>
+
+</body>
+</html>

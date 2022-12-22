@@ -1,0 +1,136 @@
+:root{
+    --corFundo1:#010101;
+    --corFundo2: #171717;
+    --corLetra1: #fafafa;
+    --corLetra2: #9ad360;
+    --corLetra3: #f57069;
+    --corLetraResult: #656565;
+    --corButtonIgual: #427e04;
+}
+
+.cor1{
+    color: var(--corLetra1);
+}
+.cor2{
+    color: var(--corLetra2);
+}
+.cor3{
+    color: var(--corLetra3);
+}
+.igual{
+    background-color: var(--corButtonIgual);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    color: #fafafa;
+ }
+body{
+    background-color: rgb(43, 43, 43);
+}
+ .flex{
+     display: flex;
+ }
+ .wrap{
+    flex-wrap: wrap;
+ }
+ .acenter{
+     display: flex;
+     align-items: center;
+ }
+ .jcenter{
+     display: flex;
+     justify-content: center;
+ }
+ .ajcenter{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+ .column{
+     display: flex;
+     flex-direction: column;
+ }
+ .none{
+     display: none;
+ }
+ .container{
+     width: 550px;
+ }
+ main{
+    height: 100vh;
+ }
+
+ /* Inicio Container */
+
+
+ #container{
+    background-color: var(--corFundo1);
+
+    width: 260px;
+    border-radius: 10px;
+    padding: 20px;
+ }
+
+
+ /* Fim Container */
+ /* Inicio Tela */
+#part_tela{
+    height: 40%;
+    border-bottom: solid 1px rgb(37, 37, 37);
+}
+#keyboard{
+    font-size: 30px;
+    color: var(--corLetra1);
+    height: 100px;
+
+}
+#result_fast{
+    height: 60px;
+    color: var(--corLetraResult);
+
+}
+#buttons{
+    flex: 1;
+    justify-content: space-between;
+}
+#buttons path{
+    color: var(--corLetra1);
+    opacity: 0.6;
+}
+.button_history, .button_thema, .button_settings{
+    margin-left: 12px;
+    margin-right: 12px;
+}
+#result_fast h2{
+    color: var(--corLetraResult);
+    font-weight: 400;
+    font-size: 22px;
+    text-align: end;
+    width: 100%;
+}
+
+
+
+
+
+
+ /* Fim Tela */
+ /* Inicio tecla */
+#part_tecla{
+    flex: 1;
+    padding-top: 15px;
+    
+}
+.key{
+    width: 45px;
+    height: 45px;
+    background-color: var(--corFundo2);
+    border-radius: 500px;
+    margin: 5px;
+    cursor: pointer;
+}
+ /* Fim tecla */
