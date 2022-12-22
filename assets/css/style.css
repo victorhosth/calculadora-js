@@ -8,9 +8,9 @@
     --corButtonIgual: #427e04;
 }
 @keyframes digiter{
-    0%{opacity: 1;}
-    50%{opacity: 0;}
-    100%{opacity: 1;}
+    0%{opacity: 0;}
+    50%{opacity: 1;}
+    100%{opacity: 0;}
 }
 .cor1{
     color: var(--corLetra1);
@@ -146,18 +146,22 @@ body{
     cursor: pointer;
     font-weight: 600;
     font-size: 20px;
-
+}
+.key.functions{
+    font-size: 30px;
 }
 .keyclick{
     font-size: 16px;
     background-color: #4e4e4e;
 }
 .digiter{
-    animation-name: digiter;
-    animation-duration: 0.7s;
-    animation-iteration-count: infinite;
     width: 2px;
-    height: 50%;
+    height: 44px;
     background-color: var(--corButtonIgual);
+}
+.digiter.animate{
+    animation-name: digiter;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 }
  /* Fim tecla */
