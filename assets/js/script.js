@@ -10,3 +10,20 @@ function definirHeightKeys(){
     }
 }
 
+// efeito click nos botões
+
+for(let i in keys){
+
+    keys[i].addEventListener('click', function(){
+
+        
+
+
+        keys[i].classList.toggle('keyclick')
+            setTimeout(() => {
+                keys[i].classList.toggle('keyclick')
+              }, "150")
+
+    })
+
+}

@@ -7,7 +7,11 @@
     --corLetraResult: #656565;
     --corButtonIgual: #427e04;
 }
-
+@keyframes digiter{
+    0%{opacity: 1;}
+    50%{opacity: 0;}
+    100%{opacity: 1;}
+}
 .cor1{
     color: var(--corLetra1);
 }
@@ -81,7 +85,7 @@ body{
 #part_tela{
     height: 40%;
     border-bottom: solid 1px rgb(37, 37, 37);
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 #keyboard{
     font-size: 30px;
@@ -103,6 +107,7 @@ body{
 #buttons{
     flex: 1;
     justify-content: space-between;
+    align-items: flex-end;
 }
 #buttons path{
     color: var(--corLetra1);
@@ -138,6 +143,20 @@ body{
     border-radius: 500px;
     margin: 5px;
     cursor: pointer;
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 20px;
+    transition: all 0.4s linear;
+}
+.keyclick{
+    font-size: 16px;
+    background-color: #282828;
+}
+.digiter{
+    animation-name: digiter;
+    animation-duration: 0.7s;
+    animation-iteration-count: infinite;
+    width: 2px;
+    height: 50%;
+    background-color: var(--corButtonIgual);
 }
  /* Fim tecla */
