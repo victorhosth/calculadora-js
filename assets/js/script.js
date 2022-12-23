@@ -35,23 +35,20 @@ for(let x = 0 ; x < 20 ; x ++ ){
 
 
 //TECLAS DIGITADAS
-let teclasTelaArray = ['c', '(', '%', '/', '7', '8', '9', '*', '4', '5', '6', '-', '1', '2', '3', '+', '', '0', ',', '=']
+let teclasTelaArray = ['c', '(', '%', '/', '7', '8', '9', '*', '4', '5', '6', '-', '1', '2', '3', '+', ' ', '0', ',', '=']
 let corpoSite = document.querySelector('body')
 
 corpoSite.addEventListener('keyup', function(key){
 
     let keyCode = key.key
-    for(let x = 0; x < 20; x++){
 
+    for(let x = 0; x <= 20; x++){
         if(keyCode == teclasTelaArray[x]){
-
             console.log(`você apertou a tecla: ${teclasTelaArray[x]}`)
             keys[x].classList.toggle('keyclick')
             setTimeout(() => {
                 keys[x].classList.toggle('keyclick')
               }, "150")
         }
-
     }
-
 })
