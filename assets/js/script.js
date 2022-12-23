@@ -13,17 +13,18 @@ function definirHeightKeys(){
 
 // efeito click nos botões
 
-for(let i = 0 ; i <= keysX; i ++ ){
+for(let x = 0 ; x < 20 ; x ++ ){
 
-    keys[i].addEventListener('click', function(){
+    keys[x].addEventListener('click', function(){
         let digiter = document.querySelector('.digiter')
 
         digiter.classList.remove('animate')
-        keys[i].classList.toggle('keyclick')
 
+        keys[x].classList.toggle('keyclick')
             setTimeout(() => {
-                keys[i].classList.toggle('keyclick')
+                keys[x].classList.toggle('keyclick')
               }, "150")
+
               setTimeout(() => {
                 digiter.classList.add('animate')
               }, "1000")
@@ -31,3 +32,26 @@ for(let i = 0 ; i <= keysX; i ++ ){
     })
 
 }
+
+
+//TECLAS DIGITADAS
+let teclasTelaArray = ['c', '(', '%', '/', '7', '8', '9', '*', '4', '5', '6', '-', '1', '2', '3', '+', '', '0', ',', '=']
+let corpoSite = document.querySelector('body')
+
+corpoSite.addEventListener('keyup', function(key){
+
+    let keyCode = key.key
+    for(let x = 0; x < 20; x++){
+
+        if(keyCode == teclasTelaArray[x]){
+
+            console.log(`você apertou a tecla: ${teclasTelaArray[x]}`)
+            keys[x].classList.toggle('keyclick')
+            setTimeout(() => {
+                keys[x].classList.toggle('keyclick')
+              }, "150")
+        }
+
+    }
+
+})

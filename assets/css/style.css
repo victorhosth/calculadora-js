@@ -144,14 +144,14 @@ body{
     border-radius: 500px;
     margin: 5px;
     cursor: pointer;
-    font-weight: 600;
-    font-size: 20px;
-}
-.key.functions{
+    font-weight: 400;
     font-size: 30px;
 }
+.key.functions{
+    font-size: 40px;
+}
 .keyclick{
-    font-size: 16px;
+    font-size: 24px;
     background-color: #4e4e4e;
 }
 .digiter{
