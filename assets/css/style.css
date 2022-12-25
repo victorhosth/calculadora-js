@@ -9,7 +9,10 @@
 }
 @keyframes digiter{
     0%{opacity: 0;}
-    50%{opacity: 1;}
+    30%{opacity: 0;}
+    33%{opacity: 1;}
+    66%{opacity: 1;}
+    69%{opacity: 0;}
     100%{opacity: 0;}
 }
 .cor1{
@@ -76,7 +79,7 @@ body{
     background-color: var(--corFundo1);
     height: 100vh;
     width: calc(100vh / 2);
-    border-radius: 10px;
+
     padding: 20px;
  }
 
@@ -98,7 +101,15 @@ body{
     width: 100%;
     text-align: end;
     font-weight: 400;
+}
+.f44{
     font-size: 44px;
+}
+.f34{
+    font-size: 34px;
+}
+.f26{
+    font-size: 26px;
 }
 #result_fast{
     height: 60px;
@@ -125,8 +136,6 @@ body{
     text-align: end;
     width: 100%;
 }
-
-
 
 
 
