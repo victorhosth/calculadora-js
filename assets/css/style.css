@@ -95,10 +95,15 @@ body{
     font-size: 30px;
     color: var(--corLetra1);
     height: 100px;
+    justify-content: flex-end;
 
 }
+.operation{
+    color: var(--corLetra2);
+    /* margin-left: 5px;
+    margin-right: 5px; */
+}
 #keyboard h1{
-    width: 100%;
     text-align: end;
     font-weight: 400;
 }
@@ -145,6 +150,8 @@ body{
 #part_tecla{
     flex: 1;
     padding-top: 15px;
+    margin-left: -5px;
+    margin-right: -5px;
     
 }
 .key{
