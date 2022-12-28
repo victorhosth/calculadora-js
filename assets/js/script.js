@@ -200,7 +200,11 @@ function verificarQtdeDigitos() {
 let buttonDel = document.querySelector('.button_delete')
 
 
-buttonDel.addEventListener('click', deletarUltimoDigito)
+buttonDel.addEventListener('click', function(){
+    deletarUltimoDigito()
+    calcular()
+    displayResultadoFast()
+})
 
 function deletarUltimoDigito() {
     let numberOne = document.querySelector('.first')
@@ -224,13 +228,12 @@ function deletarUltimoDigito() {
 
 // deletando ao apertar backspace
 
-corpoSite.addEventListener('keyup', function (key) {
+corpoSite.addEventListener('keydown', function (key) {
     let keyCode = key.key
-
-
                 if (keyCode == "Backspace") {
                     deletarUltimoDigito()
                     displayResultadoFast()
+                    calcular()
                 }
 
 
@@ -309,6 +312,7 @@ function mostrarResultado() {
     if(numberTwo.innerText == ""){
 
     }else{
+        console.log(numberOne.getBoundingClientRect())
         operation.innerHTML = "";
         numberTwo.innerHTML = "";
         numberOne.innerHTML = resultado;
@@ -322,3 +326,13 @@ corpoSite.addEventListener('keyup', function (key) {
         mostrarResultado()
     }
 });
+
+//trocando cor do tema
+let buttonColorThema = document.querySelector('.button_thema')
+
+buttonColorThema.addEventListener('click', function(){
+    let meuHTML = document.querySelector('html')
+
+    meuHTML.classList.toggle('white_mode')
+
+})

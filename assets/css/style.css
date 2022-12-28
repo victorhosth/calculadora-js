@@ -1,11 +1,23 @@
 :root{
     --corFundo1:#010101;
     --corFundo2: #171717;
+    --corFundo3: #4e4e4e;
     --corLetra1: #fafafa;
     --corLetra2: #9ad360;
     --corLetra3: #f57069;
     --corLetraResult: #656565;
     --corButtonIgual: #427e04;
+}
+
+html.white_mode:root{
+        --corFundo1: #ffffff;
+        --corFundo2: #e9e9e9;
+        --corFundo3: #cfcfcf;
+        --corLetra1: #151414;
+        --corLetra2: #39581a;
+        --corLetra3: #ff0d00;
+        --corLetraResult: #656565;
+        --corButtonIgual: #427e04;
 }
 @keyframes digiter{
     0%{opacity: 0;}
@@ -140,8 +152,19 @@ body{
     font-size: 22px;
     text-align: end;
     width: 100%;
+    transition: all 0.5s;
 }
-
+#result_fast h2.animate{
+    color: var(--corLetra1);
+    position: absolute;
+    font-size: 44px;
+    top: 42.5px;
+    right:545.75px;
+    
+}
+.first, .second{
+    color: var(--corLetra1);
+}
 
 
 
@@ -167,7 +190,7 @@ body{
 }
 .keyclick{
     font-size: 24px;
-    background-color: #4e4e4e;
+    background-color: var(--corFundo3);
 }
 .digiter{
     width: 2px;
