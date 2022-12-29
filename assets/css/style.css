@@ -49,7 +49,7 @@ html.white_mode:root{
     color: #fafafa;
  }
 body{
-    background-color: rgb(43, 43, 43);
+    background-color: var(--corFundo2);
 }
  .flex{
      display: flex;
@@ -207,3 +207,17 @@ body{
     animation-iteration-count: infinite;
 }
  /* Fim tecla */
+
+
+
+
+ /* 
+ bottom:97.5px;
+height:55px;
+left:421px;
+right:490.125px;
+top:42.5px;
+width:69.125px;
+x:421px;
+y:42.5px;
+ */

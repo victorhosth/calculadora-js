@@ -17,6 +17,11 @@ for (let x = 0; x < 20; x++) {
 
     keys[x].addEventListener('click', function () {
         let digiter = document.querySelector('.digiter')
+        let numberOne = document.querySelector('.first')
+        let numberTwo = document.querySelector('.second')
+        let operation = document.querySelector('.operation')
+        let numberTeclas = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+        let keyboard = document.querySelector('#keyboard').children
 
         if (keys[x].classList.contains('keyclick')) {
         } else {
@@ -30,7 +35,46 @@ for (let x = 0; x < 20; x++) {
             }, "1000")
         }
 
-        if (keys[x].innerText) { }
+        for(let y = 0 ; y <10 ; y++){
+            if (keys[x].innerText == y) {
+                if (operation.innerText.length > 0) {
+                    keyboard[2].innerText = (keyboard[2].textContent + y);
+                    displayResultadoFast()
+                } else {
+                    keyboard[0].innerText = (keyboard[0].textContent + y);
+                    displayResultadoFast()
+                }
+    
+                verificarQtdeDigitos()
+                aguardarDigitosParaCalcular()
+            }
+        }
+
+        let functionsTeclas = ['%', '/', '*', '-', '+']
+
+        for (let y = 0; y <= 6; y++) {
+            if (numberOne.innerText.length == 0) {
+    
+            } else {
+                if (numberTwo.innerText.length == 0) {
+                    if (keys[x].innerText == functionsTeclas[y]) {
+                        keyboard[1].innerText = (keys[x].innerText)
+                        verificarQtdeDigitos()
+                        aguardarDigitosParaCalcular()
+                    }
+                } else {
+                    if (keys[x].innerText == functionsTeclas[y]) {
+                        numberTwo.innerHTML = ""
+                        numberOne.innerHTML = resultado
+                        keyboard[1].innerText = (keys[x].innerText)
+                        verificarQtdeDigitos()
+                        aguardarDigitosParaCalcular()
+                        displayResultadoFast()
+                    }
+                }
+            }
+        }
+        
         aguardarDigitosParaCalcular()
     })
 }
@@ -84,6 +128,7 @@ corpoSite.addEventListener('keyup', function (key) {
             aguardarDigitosParaCalcular()
         }
     }
+
     for (let x = 0; x <= 6; x++) {
         if (numberOne.innerText.length == 0) {
 
@@ -103,17 +148,14 @@ corpoSite.addEventListener('keyup', function (key) {
                     aguardarDigitosParaCalcular()
                     displayResultadoFast()
                 }
-
             }
-
         }
-
-
-
-
     }
 
 })
+function addFunctionsteclas(){
+    
+}
 
 function resetKetboard() {
     keyboardSection.innerHTML = ('')
@@ -332,7 +374,9 @@ let buttonColorThema = document.querySelector('.button_thema')
 
 buttonColorThema.addEventListener('click', function(){
     let meuHTML = document.querySelector('html')
-
     meuHTML.classList.toggle('white_mode')
+
+    buttonColorThema.children[0].classList.toggle('none')
+    buttonColorThema.children[1].classList.toggle('none')
 
 })
