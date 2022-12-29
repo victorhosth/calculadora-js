@@ -58,7 +58,9 @@ for (let x = 0; x < 20; x++) {
             } else {
                 if (numberTwo.innerText.length == 0) {
                     if (keys[x].innerText == functionsTeclas[y]) {
+
                         keyboard[1].innerText = (keys[x].innerText)
+
                         verificarQtdeDigitos()
                         aguardarDigitosParaCalcular()
                     }
