@@ -14,10 +14,10 @@ html.white_mode:root{
         --corFundo2: #e9e9e9;
         --corFundo3: #cfcfcf;
         --corLetra1: #151414;
-        --corLetra2: #39581a;
+        --corLetra2:  #1ebf15;
         --corLetra3: #ff0d00;
         --corLetraResult: #656565;
-        --corButtonIgual: #427e04;
+        --corButtonIgual: #73cd16;
 }
 @keyframes digiter{
     0%{opacity: 0;}
@@ -75,7 +75,7 @@ body{
      flex-direction: column;
  }
  .none{
-     display: none;
+     display: none !important;
  }
  .container{
      width: 550px;
@@ -127,6 +127,9 @@ body{
 }
 .f26{
     font-size: 26px;
+}
+.f20{
+    font-size: 20px;
 }
 #result_fast{
     height: 60px;
@@ -206,18 +209,34 @@ body{
     animation-duration: 1s;
     animation-iteration-count: infinite;
 }
+/* #part_tecla::-webkit-scrollbar {
+    width: 50px;
+} */
  /* Fim tecla */
 
 
 
-
- /* 
- bottom:97.5px;
-height:55px;
-left:421px;
-right:490.125px;
-top:42.5px;
-width:69.125px;
-x:421px;
-y:42.5px;
- */
+/* Inicio histórico */
+.historico{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.historico h4{
+    font-weight: 200;
+    font-size: 16px;
+}
+.item_historico{
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--corFundo2);
+    padding: 7px 0px;
+}
+.button_history.open path{
+    color: var(--corButtonIgual) !important;
+}
+/* Fim histórico */

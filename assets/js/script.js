@@ -83,7 +83,7 @@ for (let x = 0; x < 20; x++) {
 
 //TECLAS DIGITADAS
 let allTeclas = ['c', '(', '%', '/', '7', '8', '9', '*', '4', '5', '6', '-', '1', '2', '3', '+', ' ', '0', ',', '=']
-let numberTeclas = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+let numberTeclas = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.']
 let functionsTeclas = ['%', '/', '*', '-', '+']
 let corpoSite = document.querySelector('body')
 let keyboardSection = document.querySelector('#keyboard')
@@ -109,24 +109,32 @@ corpoSite.addEventListener('keyup', function (key) {
 })
 
 //adicionar numeros com teclado
-corpoSite.addEventListener('keyup', function (key) {
+corpoSite.addEventListener('keydown', function (key) {
     let keyCode = key.key
     let numberOne = document.querySelector('.first')
     let numberTwo = document.querySelector('.second')
     let operation = document.querySelector('.operation')
-
-    for (let x = 0; x <= 10; x++) {
+    for (let x = 0; x <= 11; x++) {
         if (keyCode === numberTeclas[x]) {
 
             if (operation.innerText.length > 0) {
                 keyboard[2].innerText = (keyboard[2].textContent + keyCode);
+                if(keyCode === ","){
+                    
+                    keyboard[2].innerText = (keyboard[2].textContent + ".");
+
+                }
                 displayResultadoFast()
             } else {
                 keyboard[0].innerText = (keyboard[0].textContent + keyCode);
+                if(keyCode === ","){
+                    keyboard[2].innerText = (keyboard[2].textContent + ".");
+
+                }
                 displayResultadoFast()
             }
 
-            verificarQtdeDigitos()
+
             aguardarDigitosParaCalcular()
         }
     }
@@ -217,26 +225,45 @@ function digitosZerar() {
 }
 
 
-let fontSize = "nada";
+
 //verificar QTDE digitos para fonte
+let totalDigitos = 0
 function verificarQtdeDigitos() {
-    // let h1 = document.querySelectorAll('#keyboard h1')
+    let numberOne = document.querySelector('.first');
+    let numberTwo = document.querySelector('.second');
+    let operation = document.querySelector('.operation');
 
-    // if(qtdeDigitos >= 11 && qtdeDigitos <= 15){
-    //     if (fontSize == 'f34'){
+    let totalDigitos = numberOne.innerText.length + numberTwo.innerText.length + operation.innerText.length
 
-    //     }else{
-    //         return fontSize = ('f34')
-    //         for(let x = 0; x < 10; x++){
-    //             h1[x].classList.add('f34')
-    //         }
+        let keyboard = document.querySelector('#keyboard').children;
+        for(let xy = 0 ; xy <= 2 ; xy ++){
+        if(totalDigitos < 12){
+                keyboard[xy].classList.add('f44')
+                keyboard[xy].classList.remove('f34')
+                keyboard[xy].classList.remove('f26')
+                keyboard[xy].classList.remove('f20')
+        }else if(totalDigitos >= 12 && totalDigitos <=15){
+                keyboard[xy].classList.remove('f44')
+                keyboard[xy].classList.add('f34')
+                keyboard[xy].classList.remove('f26')
+                keyboard[xy].classList.remove('f20')
+        }else if(totalDigitos >= 16 && totalDigitos <=20){
+                keyboard[xy].classList.remove('f44')
+                keyboard[xy].classList.remove('f34')
+                keyboard[xy].classList.add('f26')
+                keyboard[xy].classList.remove('f20')
+        }else if(totalDigitos >= 21 && totalDigitos <=26){
+                keyboard[xy].classList.remove('f44')
+                keyboard[xy].classList.remove('f34')
+                keyboard[xy].classList.remove('f26')
+                keyboard[xy].classList.add('f20')
+        }};
+    
 
-    //     }
-
-    // }
-
-
+    return totalDigitos
 }
+
+
 
 
 // button delete 1 a 1
@@ -248,6 +275,7 @@ buttonDel.addEventListener('click', function(){
     deletarUltimoDigito()
     calcular()
     displayResultadoFast()
+    verificarQtdeDigitos()
 })
 
 function deletarUltimoDigito() {
@@ -277,6 +305,7 @@ corpoSite.addEventListener('keydown', function (key) {
                 if (keyCode == "Backspace") {
                     deletarUltimoDigito()
                     displayResultadoFast()
+                    verificarQtdeDigitos()
                     calcular()
                 }
 
@@ -310,19 +339,19 @@ function calcular() {
     let operation = document.querySelector('.operation').innerText
 
     if (operation == '+') {
-        resultado = parseInt(numberOne) + parseInt(numberTwo)
+        resultado = Number(numberOne) + Number(numberTwo)
         mostrarResultadoFast()
     }
     if (operation == '-') {
-        resultado = parseInt(numberOne) - parseInt(numberTwo)
+        resultado = Number(numberOne) - Number(numberTwo)
         mostrarResultadoFast()
     }
     if (operation == '*') {
-        resultado = parseInt(numberOne) * parseInt(numberTwo)
+        resultado = Number(numberOne) * Number(numberTwo)
         mostrarResultadoFast()
     }
     if (operation == '/') {
-        resultado = parseInt(numberOne) / parseInt(numberTwo)
+        resultado = Number(numberOne) / Number(numberTwo)
         mostrarResultadoFast()
     }
 
@@ -342,6 +371,7 @@ function displayResultadoFast() {
     } else {
         resultFast.classList.remove('none')
     }
+    verificarQtdeDigitos()
 }
 
 // botão igual ou tecla igual
@@ -356,11 +386,12 @@ function mostrarResultado() {
     if(numberTwo.innerText == ""){
 
     }else{
-        console.log(numberOne.getBoundingClientRect())
+        addHistorico()
         operation.innerHTML = "";
         numberTwo.innerHTML = "";
         numberOne.innerHTML = resultado;
         displayResultadoFast();
+        updateItensHistorico();
     }
 }
 
@@ -368,6 +399,7 @@ corpoSite.addEventListener('keyup', function (key) {
     let x = key.key 
     if(x == 'Enter' || x == "="){
         mostrarResultado()
+        
     }
 });
 
@@ -381,4 +413,92 @@ buttonColorThema.addEventListener('click', function(){
     buttonColorThema.children[0].classList.toggle('none')
     buttonColorThema.children[1].classList.toggle('none')
 
+});
+
+
+
+//histórico de cálculos
+let historico = []
+let elHistorico = document.querySelector('.historico')
+
+function addHistorico(){
+    let numberOne = document.querySelector('.first')
+    let numberTwo = document.querySelector('.second')
+    let operation = document.querySelector('.operation')
+    let resultFast = document.querySelector('#result_fast h2')
+
+    let numberOneValue = numberOne.innerText
+    let operationValue = operation.innerText
+    let numberTwoValue = numberTwo.innerText
+    let resultFastValue = resultFast.innerText
+
+    var data = new Date();
+    var hora    = data.getHours();          
+    var min     = data.getMinutes();        
+    var seg     = data.getSeconds();
+
+    if(hora <=9){hora = "0"+hora}
+    if(min <=9){min ="0"+min}
+    if(seg <=9){seg = "0"+seg}
+
+    let horario = (`${hora}:${min}:${seg}`)
+
+    let newObject = {item1: 0, operacao: 0,item2: 0,resultado: 0, horario:0};
+
+    historico.push(newObject)
+
+
+    let xObj = historico.length - 1;
+
+    historico[xObj].item1 = numberOneValue
+    historico[xObj].item2 = numberTwoValue
+    historico[xObj].operacao = operationValue
+    historico[xObj].resultado = resultFastValue
+    historico[xObj].horario = horario
+
+   
+
+    
+}
+
+//Togle buuton histórico
+
+let buttonHistorico = document.querySelector('.button_history')
+
+buttonHistorico.addEventListener('click', function(){
+    buttonHistorico.classList.toggle('open')
+    elHistorico.classList.toggle('none')
+
+    updateItensHistorico()
+     //Seta a class NONE em todos os botões do teclado.
+      for(let i = 0 ; i < 20; i++){
+         keys[i].classList.toggle('none')
+    };
+
+
 })
+
+function updateItensHistorico(){
+    let qtdeHistorico = historico.length
+    elHistorico.innerHTML = ""
+    let qtdeItensHistorico = historico.length
+    for(let x = 0; x < qtdeItensHistorico; x++){
+        let itemDaVez = historico[x]
+        let div = document.createElement('div')
+        div.setAttribute('class', 'item_historico row flex')
+
+        let conta = document.createElement('h4')
+        conta.innerText = (itemDaVez.item1 +" "+ itemDaVez.operacao +" "+ itemDaVez.item2 +" = "+ itemDaVez.resultado)
+        let hora = document.createElement('h4')
+        hora.innerText = (itemDaVez.horario)
+
+        //limpar históricos anteriores
+
+
+        div.appendChild(conta)
+        div.appendChild(hora)
+        elHistorico.appendChild(div)
+
+    }
+}
+
