@@ -494,7 +494,7 @@ function updateItensHistorico(){
         let conta = document.createElement('h4')
         let resultado = document.createElement('span')
         resultado.setAttribute('class', 'cor2')
-        resultado.innerText = (` = 15+${itemDaVez.resultado}`)
+        resultado.innerText = (` = ${itemDaVez.resultado}`)
 
         
         resultadoTotal = (itemDaVez.item1 +" "+ itemDaVez.operacao +" "+ itemDaVez.item2 )

@@ -191,6 +191,11 @@ body{
 .key.functions{
     font-size: 40px;
 }
+.key:hover{
+    scale: 1.05;
+    background-color: var(--corFundo3);
+    cursor: pointer; 
+}
 .keyclick{
     font-size: 24px;
     background-color: var(--corFundo3);
