@@ -44,7 +44,7 @@ html.white_mode:root{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto Mono', monospace;
     user-select: none;
     color: #fafafa;
  }
@@ -229,6 +229,10 @@ body{
 .historico h4{
     font-weight: 200;
     font-size: 16px;
+    color:var(--corLetra1)
+}
+html.white_mode .historico H4{
+    font-weight: 400 !important;
 }
 .item_historico{
     width: 100%;

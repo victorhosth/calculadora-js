@@ -83,7 +83,7 @@ for (let x = 0; x < 20; x++) {
 
 //TECLAS DIGITADAS
 let allTeclas = ['c', '(', '%', '/', '7', '8', '9', '*', '4', '5', '6', '-', '1', '2', '3', '+', ' ', '0', ',', '=']
-let numberTeclas = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.']
+let numberTeclas = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ',']
 let functionsTeclas = ['%', '/', '*', '-', '+']
 let corpoSite = document.querySelector('body')
 let keyboardSection = document.querySelector('#keyboard')
@@ -118,18 +118,20 @@ corpoSite.addEventListener('keydown', function (key) {
         if (keyCode === numberTeclas[x]) {
 
             if (operation.innerText.length > 0) {
-                keyboard[2].innerText = (keyboard[2].textContent + keyCode);
-                if(keyCode === ","){
-                    
-                    keyboard[2].innerText = (keyboard[2].textContent + ".");
 
+                if(keyCode === ","){
+                    keyboard[2].innerText = (keyboard[2].textContent + ".");
+                }else{
+                    keyboard[2].innerText = (keyboard[2].textContent + keyCode);
                 }
                 displayResultadoFast()
             } else {
-                keyboard[0].innerText = (keyboard[0].textContent + keyCode);
+
                 if(keyCode === ","){
                     keyboard[2].innerText = (keyboard[2].textContent + ".");
 
+                }else{
+                    keyboard[0].innerText = (keyboard[0].textContent + keyCode);
                 }
                 displayResultadoFast()
             }
@@ -242,21 +244,23 @@ function verificarQtdeDigitos() {
                 keyboard[xy].classList.remove('f34')
                 keyboard[xy].classList.remove('f26')
                 keyboard[xy].classList.remove('f20')
-        }else if(totalDigitos >= 12 && totalDigitos <=15){
+        }else if(totalDigitos >= 12 && totalDigitos <=14){
                 keyboard[xy].classList.remove('f44')
                 keyboard[xy].classList.add('f34')
                 keyboard[xy].classList.remove('f26')
                 keyboard[xy].classList.remove('f20')
-        }else if(totalDigitos >= 16 && totalDigitos <=20){
+        }else if(totalDigitos >= 15 && totalDigitos <=19){
                 keyboard[xy].classList.remove('f44')
                 keyboard[xy].classList.remove('f34')
                 keyboard[xy].classList.add('f26')
                 keyboard[xy].classList.remove('f20')
-        }else if(totalDigitos >= 21 && totalDigitos <=26){
+        }else if(totalDigitos >= 20 && totalDigitos <=24){
                 keyboard[xy].classList.remove('f44')
                 keyboard[xy].classList.remove('f34')
                 keyboard[xy].classList.remove('f26')
                 keyboard[xy].classList.add('f20')
+        }else if(totalDigitos == 25){
+
         }};
     
 
@@ -488,9 +492,19 @@ function updateItensHistorico(){
         div.setAttribute('class', 'item_historico row flex')
 
         let conta = document.createElement('h4')
-        conta.innerText = (itemDaVez.item1 +" "+ itemDaVez.operacao +" "+ itemDaVez.item2 +" = "+ itemDaVez.resultado)
+        let resultado = document.createElement('span')
+        resultado.setAttribute('class', 'cor2')
+        resultado.innerText = (` = ${itemDaVez.resultado}`)
+
+        
+        resultadoTotal = (itemDaVez.item1 +" "+ itemDaVez.operacao +" "+ itemDaVez.item2 )
+        conta.innerHTML = resultadoTotal
+        conta.appendChild(resultado)
         let hora = document.createElement('h4')
         hora.innerText = (itemDaVez.horario)
+
+        console.log(resultado)
+        console.log(resultadoTotal)
 
         //limpar históricos anteriores
 
